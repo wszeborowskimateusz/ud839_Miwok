@@ -53,8 +53,10 @@ public class WordAdapter extends ArrayAdapter<Word>{
             // Get the resource id from the current Word object and
             // set this image on the number ImageView
             imageView.setImageResource(currentWord.getImageResourceId());
+            imageView.setVisibility(View.VISIBLE);
         }
         else{
+            /*Hide the view*/
             imageView.setVisibility(View.GONE);
         }
 
