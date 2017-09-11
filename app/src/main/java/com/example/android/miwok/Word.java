@@ -16,6 +16,9 @@ public class Word {
     /*Image ID*/
     private int mImageResourceId;
 
+    /**/
+    private boolean mHasImage;
+
     /**
      * Create new Word
      * @param def a default translation of a word
@@ -24,6 +27,7 @@ public class Word {
     public Word(String def, String miwok){
         this.mMiwokTranslation = miwok;
         this.mDefaultTranslation = def;
+        this.mHasImage = false;
     }
 
     /**
@@ -36,6 +40,7 @@ public class Word {
         this.mMiwokTranslation = miwok;
         this.mDefaultTranslation = def;
         this.mImageResourceId = imageId;
+        this.mHasImage = true;
     }
 
     /**
@@ -57,5 +62,12 @@ public class Word {
      */
     public int getImageResourceId(){
         return this.mImageResourceId;
+    }
+
+    /**
+     * @return true if Adapter should load image and false when it should't
+     */
+    public boolean hasImage(){
+        return this.mHasImage;
     }
 }
