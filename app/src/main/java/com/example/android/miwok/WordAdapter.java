@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,8 +18,12 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word>{
 
 
-    public WordAdapter(Activity context, ArrayList<Word> list) {
+    /*Id of the background color of each category*/
+    private int mColorResourceId;
+
+    public WordAdapter(Activity context, ArrayList<Word> list, int color) {
         super(context,0,list);
+        this.mColorResourceId = color;
 
     }
 
@@ -59,6 +64,10 @@ public class WordAdapter extends ArrayAdapter<Word>{
             /*Hide the view*/
             imageView.setVisibility(View.GONE);
         }
+
+        /*Setting background color depend on activity*/
+        LinearLayout layout = (LinearLayout) listItemView.findViewById(R.id.text_container);
+        layout.setBackgroundColor(this.mColorResourceId);
 
 
         return listItemView;
