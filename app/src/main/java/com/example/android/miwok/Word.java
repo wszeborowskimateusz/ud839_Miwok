@@ -16,18 +16,22 @@ public class Word {
     /*Image ID*/
     private int mImageResourceId;
 
-    /**/
+    /*If we should add image to View*/
     private boolean mHasImage;
+
+    /*MP3 ID*/
+    private int mMp3ID;
 
     /**
      * Create new Word
      * @param def a default translation of a word
      * @param miwok a mewok translation of a word
      */
-    public Word(String def, String miwok){
+    public Word(String def, String miwok,int mp3){
         this.mMiwokTranslation = miwok;
         this.mDefaultTranslation = def;
         this.mHasImage = false;
+        this.mMp3ID = mp3;
     }
 
     /**
@@ -36,11 +40,12 @@ public class Word {
      * @param miwok a mewok translation of a word
      * @param imageId an ID of an image for a word
      */
-    public Word(String def, String miwok,int imageId){
+    public Word(String def, String miwok,int imageId,int mp3){
         this.mMiwokTranslation = miwok;
         this.mDefaultTranslation = def;
         this.mImageResourceId = imageId;
         this.mHasImage = true;
+        this.mMp3ID = mp3;
     }
 
     /**
@@ -70,4 +75,9 @@ public class Word {
     public boolean hasImage(){
         return this.mHasImage;
     }
+
+    /**
+     * @return the mp3 track for specific word
+     */
+    public int getmMp3ID(){return this.mMp3ID;}
 }
