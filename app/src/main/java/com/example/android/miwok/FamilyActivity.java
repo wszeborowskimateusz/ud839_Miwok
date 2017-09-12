@@ -15,14 +15,19 @@
  */
 package com.example.android.miwok;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
+
+    private MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +35,7 @@ public class FamilyActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         //create a words array
-        ArrayList<Word> words = new  ArrayList<Word>();
+        final ArrayList<Word> words = new  ArrayList<Word>();
         words.add(new Word("father","әpә",R.drawable.family_father,R.raw.family_father));
         words.add(new Word("mother","әṭa",R.drawable.family_mother,R.raw.family_mother));
         words.add(new Word("son","angsi",R.drawable.family_son,R.raw.family_son));
@@ -55,6 +60,18 @@ public class FamilyActivity extends AppCompatActivity {
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // word_list.xml file.
         ListView listView = (ListView) findViewById(R.id.list);
+
+
+        /**
+         * Adding on click listener to items in listView
+         */
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                player = MediaPlayer.create(FamilyActivity.this,words.get(i).getmMp3ID());
+                player.start();
+            }
+        });
 
         // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
         // {@link ListView} will display list items for each word in the list of words.

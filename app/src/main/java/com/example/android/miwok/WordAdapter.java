@@ -1,7 +1,6 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
-import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,7 @@ public class WordAdapter extends ArrayAdapter<Word>{
 
     /*Id of the background color of each category*/
     private int mColorResourceId;
-    private MediaPlayer mPlayer;
+
 
     public WordAdapter(Activity context, ArrayList<Word> list, int color) {
         super(context,0,list);
@@ -39,16 +38,6 @@ public class WordAdapter extends ArrayAdapter<Word>{
 
         // Get the {@link Word} object located at this position in the list
         final Word currentWord = getItem(position);
-
-        //setting onClick event to the View
-        /*listItemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPlayer = MediaPlayer.create(convertView.getContext(),currentWord.getmMp3ID());
-                mPlayer.start();
-            }
-        });*/
-
 
 
         // Find the TextView in the list_item.xml layout with the ID miwok_text_view
