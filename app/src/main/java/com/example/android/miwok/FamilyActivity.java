@@ -94,6 +94,12 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
     /**
      * Clean up the media player by releasing its resources.
      */
